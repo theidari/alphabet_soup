@@ -2,36 +2,23 @@
 # ------------------------------------ All libraries, variables and functions are defined in this fil ----------------------------------------
 # --------------------------------------------------------------------------------------------------------------------------------------------
 
+# main dependencies and setup
+from sklearn.model_selection import train_test_split # to get training and test sets
+from sklearn.preprocessing import StandardScaler # to removes the mean and scales each feature/variable to unit variance
 
 import pandas as pd
+import tensorflow as tf
 
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
-from sklearn.preprocessing import StandardScaler
-from sklearn.metrics import silhouette_score
-from sklearn.metrics import calinski_harabasz_score
+import plotly.graph_objects as go # plotting
+from plotly.subplots import make_subplots # subplotting
 
-
-from matplotlib import pyplot as plt
-import seaborn as sns
-sns.set_theme()
-
-from sklearn.cluster import KMeans
-
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots 
-
-
-# 1. libraries ------------------------------------------------------------------------------------------/
-# a-1) main dependencies and setup
+# package dependencies and setup
 from alphabet_soup.src.package.constants import * # constants
 
+# --------------------------------------------------------------------------------------------------------------------------------------------
+# functions
 
-# b-1) plotting
-
-# -------------------------------------------------------------------------------------------------------/
-
-# Plotting function --------------------------------------------------------------------------------/
+# Plotting function
 def line (df, chart_title):
     # Create a list of traces for each column in the DataFrame
     traces = []
