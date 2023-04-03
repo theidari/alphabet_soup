@@ -1,6 +1,8 @@
 # --------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------ All libraries, variables and functions are defined in this fil ----------------------------------------
 # --------------------------------------------------------------------------------------------------------------------------------------------
+# package name
+__name__ = "helpers"
 
 # main dependencies and setup
 from sklearn.model_selection import train_test_split # to get training and test sets
@@ -13,7 +15,7 @@ import plotly.graph_objects as go # plotting
 from plotly.subplots import make_subplots # subplotting
 
 # package dependencies and setup
-from alphabet_soup.src.package.constants import * # constants
+from alphabet_soup.src.package.constants import constants # Constants
 
 # --------------------------------------------------------------------------------------------------------------------------------------------
 # functions
