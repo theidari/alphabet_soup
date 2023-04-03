@@ -24,7 +24,7 @@ from plotly.subplots import make_subplots
 
 # 1. libraries ------------------------------------------------------------------------------------------/
 # a-1) main dependencies and setup
-from package.constants import * # constants
+from alphabet_soup.src.package.constants import * # constants
 
 
 # b-1) plotting
