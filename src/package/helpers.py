@@ -1,8 +1,6 @@
 # --------------------------------------------------------------------------------------------------------------------------------------------
 # ------------------------------------ All libraries, variables and functions are defined in this fil ----------------------------------------
 # --------------------------------------------------------------------------------------------------------------------------------------------
-# package name
-__name__ = "helpers"
 
 # main dependencies and setup
 from sklearn.model_selection import train_test_split # to get training and test sets
