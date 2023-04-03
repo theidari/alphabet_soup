@@ -13,7 +13,7 @@ import plotly.graph_objects as go # plotting
 from plotly.subplots import make_subplots # subplotting
 
 # package dependencies and setup
-from alphabet_soup.src.package.constants import constants # Constants
+from alphabet_soup.src.package.constants import * # Constants
 
 # --------------------------------------------------------------------------------------------------------------------------------------------
 # functions
