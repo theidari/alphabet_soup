@@ -37,7 +37,6 @@ def binning(df, param, value):
 
 # building model _____________________________________________________________________________________________________________________________
 def build_model(hp):
-    input_features = X_train_scaled.shape[1]
     nn_model = tf.keras.models.Sequential()
 
     # Allow keras tuner to decide which activation function to use in hidden layers
