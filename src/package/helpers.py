@@ -37,7 +37,8 @@ def binning(df, param, value):
     return print(f"{H_LINE} Value Count before binning:{H_LINE}{before_counts}{H_LINE}Value Count after binning:{H_LINE}{after_counts}")
 
 # building model _____________________________________________________________________________________________________________________________
-def build_model(hp, input_features):
+def build_model(hp):
+    input_features = get_input_features()	
     nn_model = tf.keras.models.Sequential()
 
     # Allow keras tuner to decide which activation function to use in hidden layers
