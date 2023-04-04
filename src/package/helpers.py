@@ -8,6 +8,7 @@ from sklearn.preprocessing import StandardScaler # to removes the mean and scale
 
 import pandas as pd
 import keras_tuner
+import tensorflow as tf
 from tensorflow import keras
 import keras_tuner # keras tuner framework
 
