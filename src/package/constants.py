@@ -44,4 +44,8 @@ SEVENSET=["#ffd700","#ffb14e","#fa8775","#ea5f94","#cd34b5","#9d02d7","#0000ff"]
 FOURSET=1
 FIVESET=2
 
+
+# separation
+H_LINE ="\n---------------------------------------------------------------------------\n"
+
 print(f"☑ constants is imporetd")
