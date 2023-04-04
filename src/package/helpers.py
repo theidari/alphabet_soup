@@ -7,8 +7,9 @@ from sklearn.model_selection import train_test_split # to get training and test 
 from sklearn.preprocessing import StandardScaler # to removes the mean and scales each feature/variable to unit variance
 
 import pandas as pd
-import tensorflow as tf
-import keras_tuner as kt
+import keras_tuner
+from tensorflow import keras
+import keras_tuner # keras tuner framework
 
 import plotly.graph_objects as go # plotting
 from plotly.subplots import make_subplots # subplotting
