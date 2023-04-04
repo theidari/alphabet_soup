@@ -34,6 +34,28 @@ def binning(df, param, value):
     after_counts = df[param].value_counts()
     return print(f"{H_LINE} Value Count before binning:{H_LINE}{before_counts}{H_LINE}Value Count after binning:{H_LINE}{after_counts}")
 
+# Compile, Train and Evaluate the Model ______________________________________________________________________________________________________
+def model(layers, input_features, act_func):
+  model = tf.keras.models.Sequential()
+
+  for i, layer in enumerate(layers):
+    # first hidden layer
+    if i==0:
+      model.add(tf.keras.layers.Dense(units=layers[0],
+                                         input_dim=input_features, activation=act_func))
+
+    # other hidden layer
+    else:
+      model.add(tf.keras.layers.Dense(units=layers[i], activation=act_func))
+  # Output layer
+  model.add(tf.keras.layers.Dense(units=1, activation="sigmoid"))
+  print(model.summary())
+
+  # Compile the model
+  model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+  return model
+
 # building model _____________________________________________________________________________________________________________________________
 def build_model(hp):
     input_features = get_input_features()	
