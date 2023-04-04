@@ -35,7 +35,7 @@ def binning(df, param, value):
     return print(f"{H_LINE} Value Count before binning:{H_LINE}{before_counts}{H_LINE}Value Count after binning:{H_LINE}{after_counts}")
 
 # Compile, Train and Evaluate the Model ______________________________________________________________________________________________________
-def model(layers, input_features, act_func):
+def as_model(layers, input_features, act_func):
   model = tf.keras.models.Sequential()
 
   for i, layer in enumerate(layers):
