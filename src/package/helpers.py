@@ -17,6 +17,21 @@ from alphabet_soup.src.package.constants import * # Constants
 
 # --------------------------------------------------------------------------------------------------------------------------------------------
 # functions
+# calculation and cleaning
+def binning(df, param, value):
+    # Look at parameter value counts for binning
+    before_counts = df[param].value_counts()
+    
+    # Choose a cutoff value and create a list of parameter to be replaced
+    types_to_replace = list(before_counts[before_counts < value].index)
+    
+    # Replace in dataframe
+    for data in types_to_replace:
+        df[param] = df[param].replace(data,"Other")
+        
+    # Check to make sure binning was successful
+    after_counts = df[param].value_counts()
+    return print(f"{H_LINE} Value Count before binning:{H_LINE}{before_counts}{H_LINE}Value Count after binning:{H_LINE}after_counts)
 
 # Plotting function
 def line (df, chart_title):
