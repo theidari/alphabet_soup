@@ -35,26 +35,27 @@ def binning(df, param, value):
     return print(f"{H_LINE} Value Count before binning:{H_LINE}{before_counts}{H_LINE}Value Count after binning:{H_LINE}{after_counts}")
 
 # Compile, Train and Evaluate the Model ______________________________________________________________________________________________________
-def as_model(layers, input_features, act_func):
-  model = tf.keras.models.Sequential()
+def as_model_func(layers, input_features, act_func):
+  as_model = tf.keras.models.Sequential()
 
   for i, layer in enumerate(layers):
     # first hidden layer
     if i==0:
-      model.add(tf.keras.layers.Dense(units=layers[0],
+      as_model.add(tf.keras.layers.Dense(units=layers[0],
                                          input_dim=input_features, activation=act_func))
 
     # other hidden layer
     else:
-      model.add(tf.keras.layers.Dense(units=layers[i], activation=act_func))
+      as_model.add(tf.keras.layers.Dense(units=layers[i], activation=act_func))
+
   # Output layer
-  model.add(tf.keras.layers.Dense(units=1, activation="sigmoid"))
-  print(model.summary())
+  as_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid"))
+  print(as_model.summary())
 
   # Compile the model
-  model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+  as_model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-  return model
+  return as_model
 
 # building model _____________________________________________________________________________________________________________________________
 def build_model(hp):
