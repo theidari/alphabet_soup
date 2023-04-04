@@ -8,6 +8,7 @@ from sklearn.preprocessing import StandardScaler # to removes the mean and scale
 
 import pandas as pd
 import tensorflow as tf
+import keras_tuner as kt
 
 import plotly.graph_objects as go # plotting
 from plotly.subplots import make_subplots # subplotting
@@ -17,7 +18,7 @@ from alphabet_soup.src.package.constants import * # Constants
 
 # --------------------------------------------------------------------------------------------------------------------------------------------
 # functions
-# calculation and cleaning
+# calculation and cleaning ___________________________________________________________________________________________________________________
 def binning(df, param, value):
     # Look at parameter value counts for binning
     before_counts = df[param].value_counts()
@@ -32,6 +33,34 @@ def binning(df, param, value):
     # Check to make sure binning was successful
     after_counts = df[param].value_counts()
     return print(f"{H_LINE} Value Count before binning:{H_LINE}{before_counts}{H_LINE}Value Count after binning:{H_LINE}{after_counts}")
+
+# building model _____________________________________________________________________________________________________________________________
+def build_model(hp):
+    nn_model = tf.keras.models.Sequential()
+
+    # Allow keras tuner to decide which activation function to use in hidden layers
+    activation = hp.Choice('activation',['relu','sigmoid'])
+    
+    # Allow kerastuner to decide number of neurons in first layer
+    nn_model.add(tf.keras.layers.Dense(units=hp.Int('first_units', min_value=1, max_value= 80, step=5),
+                                       activation=activation, input_dim=input_features))
+
+    # Allow keras tuner to decide number of hidden layers and neurons in hidden layers
+    for i in range(hp.Int('num_layers', 1, 4)):
+        nn_model.add(tf.keras.layers.Dense(units=hp.Int('units ' + str(i),
+            min_value=1,
+            max_value=30,
+            step=5),
+            activation=activation))
+			
+    # Output layer
+    nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid"))
+
+    # Compile the model
+    nn_model.compile(loss="binary_crossentropy", optimizer='adam', metrics=["accuracy"])
+    
+    return nn_model
+
 
 # Plotting function
 def line (df, chart_title):
