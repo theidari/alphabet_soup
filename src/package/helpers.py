@@ -31,7 +31,7 @@ def binning(df, param, value):
         
     # Check to make sure binning was successful
     after_counts = df[param].value_counts()
-    return print(f"{H_LINE} Value Count before binning:{H_LINE}{before_counts}{H_LINE}Value Count after binning:{H_LINE}after_counts")
+    return print(f"{H_LINE} Value Count before binning:{H_LINE}{before_counts}{H_LINE}Value Count after binning:{H_LINE}{after_counts}")
 
 # Plotting function
 def line (df, chart_title):
