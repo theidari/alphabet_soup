@@ -96,7 +96,7 @@ def accuracy_loss (df):
                            y=df[col],
                            name=col.capitalize(),
                            mode='lines',
-                            line=dict(color=TWOSET[i%len(TWOSET)]),                          )
+                            line=dict(color=TWOSET[i%len(TWOSET)]))
         traces.append(trace)
         
     # Create the layout
