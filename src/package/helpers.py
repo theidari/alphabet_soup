@@ -87,126 +87,53 @@ def build_model(hp):
 
 
 # Plotting function
-def line (df, chart_title):
+# accuracy vs. loss plot _____________________________________________________________________________________________________________________
+def accuracy_loss (df):
     # Create a list of traces for each column in the DataFrame
     traces = []
     for i, col in enumerate(df.columns):
-        col_name = col.split("_")
         trace = go.Scatter(x=df.index,
                            y=df[col],
-                           name=col_name[-1],
+                           name=col.capitalize(),
                            mode='lines',
-                           line=dict(color=SEVENSET[i%len(SEVENSET)]),
-                          )
+                            line=dict(color=TWOSET[i%len(TWOSET)]),                          )
         traces.append(trace)
         
     # Create the layout
-    layout = go.Layout(title=dict(text=chart_title,
+    layout = go.Layout(title=dict(text="Model Accuracy And Loss",
                                   font=dict(size= 24, color= 'black', family= "Times New Roman"),
                                   x=0.5,
                                   y=0.9),
-                       width=1200,
+                       width=600,
                        height=600,
-                       legend=dict(
-                           yanchor="top",
-                           y=0.99,
-                           xanchor="left",
-                           x=0.01,
+                       legend=dict(yanchor="middle",
+                           y=0.5,
+                           xanchor="right",
+                           x=0.99,
                            bgcolor= '#f7f7f7',
                            font=dict(color='black')),
-                       xaxis=dict(title='Crypto',
+                       xaxis=dict(title='Epoch',
                                   color= 'black',
                                   showline=True,
                                   linewidth=1,
                                   linecolor='black',
                                   mirror=True), 
-                       yaxis=dict(title='Price Change (%)',
+                       yaxis=dict(title='Amount',
                                   color= 'black',
                                   showline=True,
                                   linewidth=1,
                                   linecolor='black',
                                   mirror=True),
                        plot_bgcolor='#f7f7f7',
-                       paper_bgcolor="#f7f7f7")
+                       paper_bgcolor="#ffffff")
 
     # Create the figure
     fig = go.Figure(data=traces, layout=layout)
     # Show the figure
     fig.show()
-
-def histogram (df, bins, location):
-    # Set the figure size
-    plt.figure(figsize=(FIG_HEIGHT, FIG_WIDTH))
-
-    #Plot the Clusters
-    ax = sns.scatterplot(data = df_market_scaled,
-                         x = 'price_change_percentage_24h',
-                         y = 'price_change_percentage_7d', 
-                         hue = km.labels_, 
-                         palette = 'colorblind', 
-                         alpha = 0.8, 
-                         s = 150,
-                         legend = False)
-
-    #Plot the Centroids
-    ax = sns.scatterplot(data = cluster_centers, 
-                         x = 'price_change_percentage_24h',
-                         y = 'price_change_percentage_7d', 
-                         hue = cluster_centers.index, 
-                         palette = 'colorblind', 
-                         s = 600,
-                         marker = 'D',
-                         ec = 'black', 
-                         legend = False)
-
-    # Add Centroid Labels
-    for i in range(len(cluster_centers)):
-                   plt.text(x = cluster_centers.price_change_percentage_24h[i], 
-                            y = cluster_centers.price_change_percentage_7d[i],
-                            s = i, 
-                            horizontalalignment='center',
-                            verticalalignment='center',
-                            size = 15,
-                            weight = 'bold',
-                            color = 'white')
-            
-def score_plot(methods):
-    words = [s.name for s in methods]
-    subplots_data = [] 
-    for i, data in enumerate(methods):
-        line_trace = go.Scatter(x=data.index, y=data, mode='lines',
-                                line=dict(color=SEVENSET[i%len(SEVENSET)]))
-        marker_trace = go.Scatter(x=data.index, y=data, mode='markers', marker=dict(size=10,color=SEVENSET[i%len(SEVENSET)]),
-                                  hovertemplate=" number of clusters (k): <b>%{x}</b><br>"+"score: <b>%{y}</b><br>"+"<extra></extra>")
-        plot_trace = [line_trace, marker_trace]
-        subplots_data.append(plot_trace)
-
-
-    layout = go.Layout(width=1300,
-        height=500,
-        plot_bgcolor='#f7f7f7',
-        paper_bgcolor="#f7f7f7")
-
-    fig = make_subplots(rows=1, cols=len(methods), horizontal_spacing=0.1, shared_xaxes=True)
-
-    for i, data in enumerate(subplots_data):
-        for trace in data:
-            fig.add_trace(trace, row=1, col=i+1)
-            fig.update_xaxes(tickfont=dict(size= 14, family='calibri', color='black' ),
-                             showline=True, linewidth=0.5, linecolor='black', mirror=True, row=1, col=i+1)
-            fig.update_yaxes(title=dict(text=words[i].capitalize()+" Score",
-                                        font=dict(size= 18, color= 'black', family= "Calibri")),
-                             tickfont=dict(size= 14, family='calibri', color='black' ),
-                             showline=True, linewidth=0.5, linecolor='black', mirror=True, row=1, col=i+1)
-
-    fig.update_xaxes(title=dict(text="Number of Clusters (k)",
-                                font=dict(size= 18, color= 'black', family= "Calibri")), row=1, col=2)
-
-    # Update the layout of the figure
-    fig.update_layout(layout, showlegend=False) 
-
-    fig.show()        
-# -------------------------------------------------------------------------------------------------------/
+	
+# --------------------------------------------------------------------------------------------------------------------------------------------
+	
 # km function and scatter plot
 def scatter_cluster(n, df, columns):
     km = KMeans(n_clusters = n, n_init = 25, random_state = 1234)
