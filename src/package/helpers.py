@@ -59,7 +59,7 @@ def as_model_func(layers, input_features, act_func):
   return as_model
 
 # early stop and epoch calculation ___________________________________________________________________________________________________________
-def epoch_func(layers, features=[input_features, X_train_scaled, y_train, X_test_scaled, y_test], act_func, batches, epochs_est):
+def epoch_func(layers, act_func, batches, epochs_est, features=[input_features, X_train_scaled, y_train, X_test_scaled, y_test]):
 	early_stopping = callbacks.EarlyStopping(
 	    min_delta=0.001, # minimium amount of change to count as an improvement
 	    patience=20, # how many epochs to wait before stopping
