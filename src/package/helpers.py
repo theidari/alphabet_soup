@@ -97,7 +97,7 @@ def epoch_func(layers, act_func, batches, epochs_est, features):
 	print("Minimum validation loss: {}".format(history_df['val_loss'].min()))
 		
 	# Evaluate the model using the test data
-	model_loss, model_accuracy = model.evaluate(X_test_scaled,y_test,verbose=2)
+	model_loss, model_accuracy = model.evaluate(features[3], features[4],verbose=2)
 	print(f"Loss: {model_loss}, Accuracy: {model_accuracy}")
 
 # building model _____________________________________________________________________________________________________________________________
