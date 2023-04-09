@@ -4,7 +4,7 @@
 
 # folders and files names
 DATA_URL = "https://static.bc-edx.com/data/dl-1-2/m21/lms/starter/charity_data.csv"
-OUTPUT_URL = "../result/"
+OUTPUT_URL = "alphabet_soup/result/"
 
 # Colors
 SEVENSET=["#ffd700","#ffb14e","#fa8775","#ea5f94","#cd34b5","#9d02d7","#0000ff"]
