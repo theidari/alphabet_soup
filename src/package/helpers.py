@@ -59,7 +59,7 @@ def as_model_func(layers, input_features, act_func):
   return as_model
 
 # early stop and epoch calculation ___________________________________________________________________________________________________________
-def epoch_func(layers, act_func, batches, epochs_est, features=[input_features, X_train_scaled, y_train, X_test_scaled, y_test]):
+def epoch_func(layers, act_func, batches, epochs_est, features):
 	early_stopping = callbacks.EarlyStopping(
 	    min_delta=0.001, # minimium amount of change to count as an improvement
 	    patience=20, # how many epochs to wait before stopping
@@ -70,7 +70,7 @@ def epoch_func(layers, act_func, batches, epochs_est, features=[input_features, 
 		# first hidden layer
 		if i==0:
 			model.add(tf.keras.layers.Dense(units=layers[0],
-                                         input_dim=input_features, activation=act_func))
+                                         input_dim=features[0], activation=act_func))
 		# other hidden layer
 		else:
 			model.add(tf.keras.layers.Dense(units=layers[i], activation=act_func))
@@ -83,8 +83,8 @@ def epoch_func(layers, act_func, batches, epochs_est, features=[input_features, 
 	model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 	history = model.fit(
-	    X_train_scaled, y_train,
-	    validation_data=(X_test_scaled, y_test),
+	    features[1], features[2],
+	    validation_data=(features[3], features[4]),
 	    batch_size=batches,
 	    epochs=epochs_est,
 	    callbacks=[early_stopping], # put your callbacks in a list
