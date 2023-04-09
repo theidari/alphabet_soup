@@ -88,7 +88,7 @@ def epoch_func(layers, act_func, batches, epochs_est, features=[input_features, 
 	    batch_size=batches,
 	    epochs=epochs_est,
 	    callbacks=[early_stopping], # put your callbacks in a list
-	    verbose=0,  # turn off training log)
+	    verbose=0,)  # turn off training log
 		
 	history_df = pd.DataFrame(history.history)
 	history_df=history_df[['loss', 'val_loss']]
