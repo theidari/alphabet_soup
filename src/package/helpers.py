@@ -99,36 +99,7 @@ def epoch_func(layers, act_func, batches, epochs_est, features):
 	# Evaluate the model using the test data
 	model_loss, model_accuracy = model.evaluate(features[3], features[4],verbose=2)
 	print(f"Loss: {model_loss}, Accuracy: {model_accuracy}")
-
-# building model _____________________________________________________________________________________________________________________________
-def build_model(hp, input_features, values, layers):
-    nn_model = tf.keras.models.Sequential()
-
-    # Allow kerastuner to decide which activation function to use in hidden layers
-    activation = hp.Choice("activation",["relu","tanh","sigmoid"])
-    
-    # Allow kerastuner to decide number of neurons in first layer
-    nn_model.add(tf.keras.layers.Dense(units=hp.Int("first_units",
-        min_value=1,
-        max_value=values[0],
-        step=5), activation=activation, input_dim=input_features))
-
-    # Allow kerastuner to decide number of hidden layers and neurons in hidden layers
-    for i in range(hp.Int("num_layers", 1, layers)):
-        nn_model.add(tf.keras.layers.Dense(units=hp.Int("units_" + str(i),
-            min_value=1,
-            max_value=values[1],
-            step=5),
-            activation=activation))
-    
-    nn_model.add(tf.keras.layers.Dense(units=1, activation="sigmoid"))
-
-    # Compile the model
-    nn_model.compile(loss="binary_crossentropy", optimizer='adam', metrics=["accuracy"])
-    
-    return nn_model
-
-
+	
 # Plotting function
 # accuracy vs. loss plot _____________________________________________________________________________________________________________________
 def accuracy_loss (df):
