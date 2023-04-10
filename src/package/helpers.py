@@ -10,6 +10,8 @@ import pandas as pd
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers, callbacks
+from my_module import build_model
+from kerastuner.tuners import RandomSearch
 
 import plotly.graph_objects as go # plotting
 from plotly.subplots import make_subplots # subplotting
@@ -101,7 +103,7 @@ def epoch_func(layers, act_func, batches, epochs_est, features):
 	print(f"Loss: {model_loss}, Accuracy: {model_accuracy}")
 
 # building model _____________________________________________________________________________________________________________________________
-def build_model(input_features, values, layers):
+def build_model(hp, input_features, values, layers):
     nn_model = tf.keras.models.Sequential()
 
     # Allow kerastuner to decide which activation function to use in hidden layers
