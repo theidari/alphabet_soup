@@ -10,7 +10,6 @@ import pandas as pd
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers, callbacks
-from my_module import build_model
 from kerastuner.tuners import RandomSearch
 
 import plotly.graph_objects as go # plotting
