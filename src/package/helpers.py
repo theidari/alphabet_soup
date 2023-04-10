@@ -101,7 +101,7 @@ def epoch_func(layers, act_func, batches, epochs_est, features):
 	print(f"Loss: {model_loss}, Accuracy: {model_accuracy}")
 
 # building model _____________________________________________________________________________________________________________________________
-def build_model(hp, input_features, values, layers):
+def build_model(input_features, values, layers):
     nn_model = tf.keras.models.Sequential()
 
     # Allow kerastuner to decide which activation function to use in hidden layers
