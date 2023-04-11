@@ -30,7 +30,11 @@
   
 <li align="justify"><b><ins>Pre-optimization and Optimization attempt:</ins></b> In order to determine the optimal number of layers using the "wider and deeper" approach and identify the best number of epochs using the "callback stop" method, Keras Tuner, a hyperparameter tuning library, was utilized during the experiments. Based on the results, the optimal number of epochs was found to be 35, and the activation functions were set to ['relu', 'tanh', 'sigmoid']. The first layer was set between 1 and 320, while other layers were set between 1 and 120. The output layer employed the "sigmoid" activation function. Additionally, various feature sets were tested to assess their impact on the loss and accuracy of the model.
 <ul>
-<li><i><ins>The initial model did not meet the desired performance target of 75%, with an accuracy of only 72.90% and a loss of 56.02%.</ins></i></li>
+<li><i><ins>The pre-optimization model achieved a maximum accuracy of 72.94% and a loss of 18.71%. This model was build using:</ins></i> <code>{'activation': 'relu', 'first_units': 301, 'num_layers': 5, 'units_0': 81, 'units_1': 36, 'units_2': 41, 'units_3': 11, 'units_4': 116, 'units_5': 76, 'units_6': 81, 'units_7': 46, 'tuner/epochs': 35, 'tuner/initial_epoch': 0, 'tuner/bracket': 0, 'tuner/round': 0}</code><br>it means that the optimization process focuses on reducing the model's loss without affecting its accuracy. In other words, the model is already performing well in terms of accuracy, but it can still be optimized to reduce the loss further.</li>
+
+
+
+</li>
 </ul>
 </li>
  
