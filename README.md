@@ -3,7 +3,7 @@
 </p>
 <h3>1. Overview</h3>
 <p align="justify">Alphabet Soup, a nonprofit foundation, is seeking assistance in identifying the most promising funding applicants using a data-driven approach. To achieve this goal, a binary classifier will be developed using a provided dataset that contains information on over 34,000 organizations that have previously received funding from Alphabet Soup. The <b>objective</b> is to predict the likelihood of success for applicants who receive funding from the foundation.</P>
-<p align="center"> | <a href="https://github.com/theidari/alphabet_soup/blob/main/src/AlphabetSoupCharity.ipynb">Initial attempt</a> | <a href="https://github.com/theidari/alphabet_soup/blob/main/src/AlphabetSoupCharity_Optimization.ipynb">Pre-Optimization attempt</a> | <a href="https://github.com/theidari/alphabet_soup/blob/main/src/AlphabetSoupCharity_Optimization_Name.ipynb">Optimization attempt</a> | <a href="https://github.com/theidari/alphabet_soup/tree/main/src/package">Package</a> | </p>
+<p align="center"> | <a href="https://github.com/theidari/alphabet_soup/blob/main/src/AlphabetSoupCharity.ipynb">Initial attempt</a> | <a href="https://github.com/theidari/alphabet_soup/blob/main/src/AlphabetSoupCharity_Optimization.ipynb">Pre-Optimization attempt</a> | <a href="https://github.com/theidari/alphabet_soup/blob/main/src/AlphabetSoupCharity_Optimization_Name.ipynb">Optimization attempt</a> | <a href="https://github.com/theidari/alphabet_soup/tree/main/src/package">Package</a> | <a href="https://github.com/theidari/alphabet_soup/tree/main/result">h5 files</a> | </p>
 
 <hr>
 <h3>2. Results</h3>
