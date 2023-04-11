@@ -3,7 +3,6 @@
 </p>
 <h3>1. Overview</h3>
 <p align="justify">Alphabet Soup, a nonprofit foundation, is seeking assistance in identifying the most promising funding applicants using a data-driven approach. To achieve this goal, a binary classifier will be developed using a provided dataset that contains information on over 34,000 organizations that have previously received funding from Alphabet Soup. The <b>objective</b> is to predict the likelihood of success for applicants who receive funding from the foundation.</P>
-<h4>Why this project?</h4>
 <hr>
 <h3>2. Results</h3>
 <h4>1.2. Data Preprocessing</h4>
