@@ -1,7 +1,7 @@
 <p align="center">
 <img src="https://github.com/theidari/alphabet_soup/blob/main/assets/header.png" width=900px>
 </p>
-<h3>Overview</h3>
+<h3>1. Overview</h3>
 <p align="justify">Alphabet Soup, a nonprofit foundation, is seeking assistance in identifying the most promising funding applicants using a data-driven approach. To achieve this goal, a binary classifier will be developed using a provided dataset that contains information on over 34,000 organizations that have previously received funding from Alphabet Soup. The <b>objective</b> is to predict the likelihood of success for applicants who receive funding from the foundation.</P>
 <h4>Why this project?</h4>
 <hr>
@@ -17,7 +17,7 @@
 <li align="justify"><b>Optimization attempt:</b> The "NAME" column was added back to the feature set based on a particular condition. Although including the "NAME" column may introduce bias into the modeling process since it serves as an identification column, a criterion was established to mitigate this potential bias by grouping the names into just over 100 categories.</li>
 </ul>
 </li>
-
+</ul>
 <h5>2.1.2. binning</h5>
 <ul align="justify">
 <li>In an <b><ins>initial</ins></b> and <b><ins>pre-optimization</ins></b> stage, the 'APPLICATION_TYPE' and 'CLASSIFICATION' features had 17 and 71 distinct values, respectively, while the other features had less than 7 unique values. To simplify the data and facilitate analysis and modeling, a new category called 'other' was created for data values below 500 and 800 in the respective columns.</li>
@@ -28,6 +28,13 @@
 <ul align="justify">
 <li align="justify"><b><ins>Initial attempt:</ins></b> This model comprises of two hidden layers, one with 80 neurons and the other with 30 neurons. The activation function used for the hidden layers was "relu", and "sigmoid" was used for the output layer. The analysis was conducted over 100 epochs. <i><ins>The initial model did not meet the desired performance target of 75%, with an accuracy of only 72.90% and a loss of 56.02%.</ins></i></li><br>
   
-<li align="justify"><b><ins>Pre-optimization and Optimization attempt:</ins></b> In order to determine the optimal number of layers using the "wider and deeper" approach and identify the best number of epochs using the "callback stop" method, Keras Tuner, a hyperparameter tuning library, was utilized during the experiments. Based on the results, the optimal number of epochs was found to be 35, and the activation functions were set to ['relu', 'tanh', 'sigmoid']. The first layer was set between 1 and 320, while other layers were set between 1 and 120. The output layer employed the "sigmoid" activation function. Additionally, various feature sets were tested to assess their impact on the loss and accuracy of the model.</li>
+<li align="justify"><b><ins>Pre-optimization and Optimization attempt:</ins></b> In order to determine the optimal number of layers using the "wider and deeper" approach and identify the best number of epochs using the "callback stop" method, Keras Tuner, a hyperparameter tuning library, was utilized during the experiments. Based on the results, the optimal number of epochs was found to be 35, and the activation functions were set to ['relu', 'tanh', 'sigmoid']. The first layer was set between 1 and 320, while other layers were set between 1 and 120. The output layer employed the "sigmoid" activation function. Additionally, various feature sets were tested to assess their impact on the loss and accuracy of the model.
+<ul>
+<li><i><ins>The initial model did not meet the desired performance target of 75%, with an accuracy of only 72.90% and a loss of 56.02%.</ins></i></li>
+</ul>
+</li>
  
 </ul>
+
+<hr>
+<h3>2. Summary</h3>
