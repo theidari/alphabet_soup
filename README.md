@@ -22,21 +22,10 @@
 <li>Furthermore, during the <b><ins>optimization</ins></b> attempt, a new category labeled as 'other' was introduced for data values below 100 in the 'NAME' column.</li>
 </ul>
 </p>
-<h4>2.2. Data Preprocessing</h4>
 
-
-
-
-
-
-
-different feature sets were used to understand their effects on the loss and accuracy.
-
-What variable(s) are the target(s) for your model?
-What variable(s) are the features for your model?
-What variable(s) should be removed from the input data because they are neither targets nor features?
-Compiling, Training, and Evaluating the Model
-
-How many neurons, layers, and activation functions did you select for your neural network model, and why?
-Were you able to achieve the target model performance?
-What steps did you take in your attempts to increase model performance?
+<h4>2.2. Compiling, Training, and Evaluating the Model</h4>
+<ul>
+<li align="justify"><b><ins>Initial attempt:</ins></b> This model comprises of two hidden layers, one with 80 neurons and the other with 30 neurons. The activation function used for the hidden layers was "relu", and "sigmoid" was used for the output layer. The analysis was conducted over 100 epochs. <i><ins>The initial model did not meet the desired performance target of 75%, with an accuracy of only 72.90% and a loss of 56.02%.</ins></i></li><br>
+  
+<li align="justify"><b><ins>Pre-optimization and Optimization attempt:</ins></b> In order to determine the optimal number of layers using the "wider and deeper" approach and identify the best number of epochs using the "callback stop" method, Keras Tuner, a hyperparameter tuning library, was utilized during the experiments. Based on the results, the optimal number of epochs was found to be 35, and the activation functions were set to ['relu', 'tanh', 'sigmoid']. The first layer was set between 1 and 320, while other layers were set between 1 and 120. The output layer employed the "sigmoid" activation function. Additionally, various feature sets were tested to assess their impact on the loss and accuracy of the model.</li>
+ 
