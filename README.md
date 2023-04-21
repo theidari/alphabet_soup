@@ -41,7 +41,7 @@
 </ul>
 
 <hr>
-<h3>2. Summary</h3>
+<h3>3. Summary</h3>
 <p align="justify">
 The Results section describes the data preprocessing steps and the model building process. During data preprocessing, the target variable was set to 'IS_SUCCESSFUL', and various columns such as 'EIN', 'NAME', and 'SPECIAL_CONSIDERATIONS' were dropped from the feature set. The 'APPLICATION_TYPE' and 'CLASSIFICATION' features were binned to create a new category called 'other' for data values below 500 and 800, respectively. During model building, an initial attempt was made with two hidden layers, but it did not meet the desired performance target of 75%. Pre-optimization and optimization attempts were made to determine the optimal number of layers and the best number of epochs using Keras Tuner. The optimization model underwent 180 trials before achieving a maximum accuracy of 75.56% and a loss of 49.57%. The model appears to have met the performance target of 75%.</p>
 
